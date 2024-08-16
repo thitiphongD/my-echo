@@ -1,8 +1,7 @@
-package user
+package entities
 
 import "time"
 
-// User represents the user entity.
 type User struct {
 	ID        int       `gorm:"primaryKey;autoIncrement"`
 	Name      *string   `gorm:"size:255"`

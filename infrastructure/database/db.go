@@ -3,8 +3,8 @@ package database
 import (
 	"fmt"
 	"log"
+	"os/user"
 
-	"github.com/thitiphongD/my-echo/domain/user"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -21,6 +21,7 @@ func ConnectDB() (*gorm.DB, error) {
 	fmt.Println("Database connection established")
 	DB = db
 	err = db.AutoMigrate(&user.User{})
+
 	if err != nil {
 		log.Fatalf("Failed to migrate database: %v", err)
 		return nil, err
